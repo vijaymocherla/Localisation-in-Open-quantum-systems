@@ -2,7 +2,7 @@
 
 The python file LvN_Solver.py can be run on a command line system(Terminal) with the following arguments.
 
-user@SYSTEM:~/your_working_directory$  python3 LvN_Solver.py N (sys size) conf (ensemble size) T (LongTime) tSteps (no.of time steps) Method (type_of_disorder) env (bath_condition) rate (dephasing_rate) filename (name_for_your_output_file) 
+[[[user@SYSTEM:~/your_working_directory$  python3 LvN_Solver.py N (sys size) conf (ensemble size) T (LongTime) tSteps (no.of time steps) Method (type_of_disorder) env (bath_condition) rate (dephasing_rate) filename (name_for_your_output_file) ]]]
 
 N (sys size) - int()
 The system size could be anything between 2-128 or even higher; N beyond 128 has not been tested. But, we expect to achieve reasonable amount of speed up with the object class implementation of Disorder_average_parallelisation():
