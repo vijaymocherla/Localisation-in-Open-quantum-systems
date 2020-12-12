@@ -3,7 +3,7 @@
 The python file LvN_Solver.py can be run on a command line system(Terminal) with the following arguments.
 
 ```console
-user@SYSTEM:~/your_working_directory$  python3 LvN_Solver.py N (sys size) conf (ensemble size) T (LongTime) tSteps (#time steps) Method (type_of_disorder) env (bath_condition) rate (dephasing_rate) filename (name_for_your_output_file)
+user@SYSTEM:~/working_directory$  python3 LvN_Solver.py N  [sys size]  conf  [ensemble size] T [LongTime]  tSteps  [#time steps] Method  [type_of_disorder]  env [bath_condition]  rate  [dephasing_rate]  filename  s[name_for_your_output_file]
 ```
 ### Parameter description
 
