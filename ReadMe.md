@@ -1,11 +1,20 @@
 ## Localisation in Open quantum systems
 
-The python file LvN_Solver.py can be run on a command line system(Terminal) with the following arguments.
+Localisation in Open quantum systems, contains an example of a disorder averaged calculation for simple 1d-tight binding model. 
+
+### localisation.py
+This is a simple implementation of calculation for disorder-averaged amplitudes of a 1d-tight binding model with the
+nearest neighbor couplings being perturbed by disorder.
+
+### LvN_Solver.py
+LvN_Solver.py implements the disorder-averaged calculation by solving the Liouville von Nuemann equation for populations at each site.
+
+This file can be run on a command line system(Terminal) with the following arguments.
 
 ```console
 user@SYSTEM:~/working_directory$  python3 LvN_Solver.py N  [sys size]  conf  [ensemble size] T [LongTime]  tSteps  [#time steps] Method  [type_of_disorder]  env [bath_condition]  rate  [dephasing_rate]  filename  s[name_for_your_output_file]
 ```
-### Parameter description
+#### Parameter description
 
 N (sys size) - int()
 The system size could be anything between 2-128 or even higher; N beyond 128 has not been tested. But, we expect to achieve reasonable amount of speed up with the object class implementation of Disorder_average_parallelisation():

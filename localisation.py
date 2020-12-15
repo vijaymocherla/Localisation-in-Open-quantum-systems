@@ -1,12 +1,28 @@
+# !/usr/bin/env python
+# 
+# 'localisation.py' has a simple implementation of calculation for
+#  disorder-averaged amplitudes of a 1d-tight binding model with 
+#  the nearest neighbor couplings being perturbed by disorder. 
+#
+#
+# MIT License. Copyright (c) 2020 Vijay Mocherla
+#
+# Source code at 
+# <htts://github.com/vijaymocherla/Localisation-in-Open-quantum-systems.git>
+
+# Importing a few packages
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import sys
 from numpy import linalg
 from scipy import integrate
-import time as tt
+import time as Tclock
 
 def Hamiltonian(N,V):
+    """ Generates the 'N'-dimensional Hamiltonian matrix of
+        a 1-d tight binding model for an array nearest neighbor site couplings 'V'
+    """
     H = np.zeros((N,N))
     H[0][1] = V[0]
     H[N-1][N-2] = V[N-1]
@@ -32,19 +48,18 @@ def disorder_avg(N,seed_loc,params):
     K,T,tSteps = params
     time = np.linspace(0,T,tSteps)
     davg_tps = np.zeros((tSteps,N))
-    st1 = tt.time()
-
- # In the following loop, we generation random outcomes K times and add to davg_tps.
- # davg_tps is then averaged by total no. cycles.
+    st1 = Tclock.time()
+    # In the following loop, we generation random outcomes K times and add to davg_tps.
+    # davg_tps is then averaged by total no. cycles.
     for i in range(K):
-        #st2 = tt.time()
+        #st2 = Tclock.time()
         davg_tps+=conf_run(N,seed_loc,params)
-        #e2 = tt.time()    
+        #e2 = Tclock.time()    
         #print(e2-st2)
 
     davg_tps = davg_tps/K
     
-    e1 = tt.time()
+    e1 = Tclock.time()
     print('time per cycle : ',(e1-st1)/K )
     print('time entire run in mins : ', (e1-st1)/60 )
     return(davg_tps,time)

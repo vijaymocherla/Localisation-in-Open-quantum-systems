@@ -1,3 +1,17 @@
+# !/usr/bin/env python
+# 
+# 'LvN_Solver.py' implements the disorder-averaged calculation by solving
+#  the Liouville von Nuemann equation for populations at each site. 
+#
+#
+#
+# MIT License. Copyright (c) 2020 Vijay Mocherla
+#
+# Source code at 
+# <htts://github.com/vijaymocherla/Localisation-in-Open-quantum-systems.git>
+
+
+# Importing a few packages
 import numpy as np
 import scipy as sp
 import matplotlib.pyplot as plt
@@ -8,8 +22,10 @@ from numpy import random
 from functools import partial
 from multiprocessing import Pool
 
+# Here we define a few functions for our calculation. 
 def Off_diagonal_disorder(N):
-    E =1
+    """ Generates an N-dimensional Hamiltonian matrix with random site-couplings"""
+    E = 1 # set default site energy to 1 a.u.  
     diag = np.empty(N)
     diag.fill(E)
     H = np.diag(diag,k=0)
@@ -22,6 +38,7 @@ def Off_diagonal_disorder(N):
     return(H)
             
 def Site_disorder(N):
+    """ Generates an N-dimensional hamiltonian matrix with random site-energies"""
     diag =random.random(N)
     H = np.diag(diag,k=0)
     V = 1
@@ -45,7 +62,7 @@ def Lindbladian_super_operator(N):
     D = np.diag(d,k=0)    
     return(D)        
 
-
+# we generate the density matrix for an initial state.
 def rho0(N,i):
     psi0_bra = np.zeros(N)
     psi0_bra[i-1] = 1
