@@ -356,5 +356,3 @@ if __name__ == '__main__':
     fig.savefig(file_name+'.png')
     #plt.show()
     #print(tavg_data)
-
-    
